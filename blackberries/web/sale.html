@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>blackberries shop - продаж</title>
+
+	<script src="eel.js"></script>
+	<link rel="icon" type="image/png" href="/favicon.png">
+
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div id="page" class="center-menu">
+		<h5>Оберіть товар, який був продан</h5>
+		<select name="clothing" id="clothing">
+  			<option value="ghosttee">GHOST TEE</option>
+  			<option value="whitehoodie">White hoodie</option>
+  			<option value="blackberriescap">BLACKBERRIES CAP</option>
+  			<option value="pinkhoodie">Pink hoodie</option>
+		</select>
+		<h5>Оберіть розмір проданного одягу</h5>
+		<select name="size" id="size">
+  			<option value="xxl">XXL</option>
+  			<option value="xl">XL</option>
+  			<option value="l">L</option>
+  			<option value="m">M</option>
+  			<option value="s">S</option>
+		</select>
+		<h5>Введіть кількість проданного товару</h5>
+		<input id="amountp" type="number" required="">
+		<h5>Введіть ціну за одиницю проданного товару</h5>
+		<input id="pricep" type="number" required="">
+		<h5 id="res"></h5>
+		<button onclick="add()">Додати</button>
+		<button onclick="back()">Назад</button>
+	</div>
+	<script type="text/javascript">
+		async function back() {
+			document.getElementById('page').innerHTML = `<div class="center-menu">
+			<img src="gif/load.gif">
+			</div>`;
+
+			await new Promise(r => setTimeout(r, 2000));
+			window.location.href = "menu.html";
+		}
+		async function add() {
+			let namep = document.getElementById('clothing').value;
+			let sizep = document.getElementById('size').value;
+			let amountp = document.getElementById('amountp').value;
+			let pricep = document.getElementById('pricep').value;
+
+			document.getElementById('res').innerHTML = 'Йде обробка';
+
+			let res = await eel.addsale(namep, sizep, amountp, pricep)();
+			document.getElementById('res').innerHTML = res;
+		}
+	</script>
+</body>
+</html>

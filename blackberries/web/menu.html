@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>blackberries shop - меню</title>
+
+	<script src="eel.js"></script>
+	<link rel="icon" type="image/png" href="/favicon.png">
+
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<h1>СИСТЕМА ОБЛІКУ ІНТЕРНЕТ-МАГАЗИНУ BLACKBERRIES</h1>
+			<div id="page" class="menucards">
+				<div class="card" onclick="shopping()">
+					<img src="shopping-cart.png" alt="shopping-cart" class="imagecard">
+					<h4>Облік закупівель</h4>
+					<h5>Додайте інформацію про закупівлю товару</h5>
+				</div>
+				<div class="card" onclick="growth()">
+					<img src="growth.png" alt="growth" class="imagecard">
+					<h4>Аналітика</h4>
+					<h5>Дізнайтеся про свій дохід на основі вашої інформації</h5>
+				</div>
+				<div class="card" onclick="sale()">
+					<img src="business-and-finance.png" alt="business-and-finance" class="imagecard">
+					<h4>Облік продажу</h4>
+					<h5>Додайте інформацію про продаж товару</h5>
+				</div>
+			</div>
+	<script type="text/javascript">
+		async function shopping() {
+			document.getElementById('page').innerHTML = `<div class="center-menu">
+			<img src="gif/load.gif">
+			</div>`;
+
+			await new Promise(r => setTimeout(r, 2000));
+			window.location.href = "shopping.html";
+		}
+		async function growth() {
+			document.getElementById('page').innerHTML = `<div class="center-menu">
+			<img src="gif/load.gif">
+			</div>`;
+
+			await new Promise(r => setTimeout(r, 2000));
+			window.location.href = "growth.html";
+		}
+		async function sale() {
+			document.getElementById('page').innerHTML = `<div class="center-menu">
+			<img src="gif/load.gif">
+			</div>`;
+
+			await new Promise(r => setTimeout(r, 2000));
+			window.location.href = "sale.html";
+		}
+	</script>
+</body>
+</html>
